@@ -25,10 +25,12 @@
                     <button class="single-digit-button" id="button-0" onclick="handleClick('0')">0</button>
                 </div>
                 <div class="operation-buttons">
+                    <button onclick="handleClick('*')">*</button>
+                    <button onclick="handleClick('/')">/</button>
                     <button onclick="handleClick('+')">+</button>
                     <button onclick="handleClick('-')">-</button>
                     <button onclick="handleResult()">=</button>
-                    <button onclick="handleClear()">AC</button>
+                    <button id="button-clear" onclick="handleClear()">AC</button>
                 </div>
             </div>
         </div>

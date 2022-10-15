@@ -1,22 +1,27 @@
 body {
-    background-color: white;
+    background-color: lightblue;
 }
 
 .calc-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    width: 400px;
+    align-items: center;
+    width: 500px;
+    margin-left: 25%;
+    margin-top: 10%;
+    border: 10px solid salmon;
+    border-radius: 15px;
 }
 
 .operation {
     border: 2px solid black;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
     text-align: right;
-    width: 400px;
+    width: 500px;
     height: 50px;
+    background-color: lightgreen;
 }
 
 #current-operation {
@@ -33,12 +38,14 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 300px;
 }
 
 .digit-buttons > * {
     width: 100px;
     height: 100px;
     font-size: 24px;
+    background-color: lightgray;
 }
 
 #button-0 {
@@ -46,8 +53,21 @@ body {
     width: 300px;
 }
 
+.operation-buttons {
+    display: flex;
+    width: 200px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
 .operation-buttons > * {
     width: 100px;
-    height: 100px;
-    font-size: 24px;
+    height: 33.3%;
+    font-size: 40px;
+    background-color: lightskyblue;
+}
+
+#button-clear {
+    color: orangered;
 }
