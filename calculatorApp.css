@@ -1,0 +1,53 @@
+body {
+    background-color: white;
+}
+
+.calc-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 400px;
+}
+
+.operation {
+    border: 2px solid black;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: right;
+    width: 400px;
+    height: 50px;
+}
+
+#current-operation {
+    margin: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.digit-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.digit-buttons > * {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+}
+
+#button-0 {
+    justify-self: center;
+    width: 300px;
+}
+
+.operation-buttons > * {
+    width: 100px;
+    height: 100px;
+    font-size: 24px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="calculatorApp.css">
+        <script src="calculatorApp.js"></script>
+    </head>
+    <body>
+        <div class="calc-screen">
+            <div class="operation">
+                <p id="current-operation"></p>
+            </div>
+            <div class="buttons">
+                <div class="digit-buttons">
+                    <button class="single-digit-button" onclick="handleClick('7')">7</button>
+                    <button class="single-digit-button" onclick="handleClick('8')">8</button>
+                    <button class="single-digit-button" onclick="handleClick('9')">9</button>
+                    <button class="single-digit-button" onclick="handleClick('4')">4</button>
+                    <button class="single-digit-button" onclick="handleClick('5')">5</button>
+                    <button class="single-digit-button" onclick="handleClick('6')">6</button>
+                    <button class="single-digit-button" onclick="handleClick('1')">1</button>
+                    <button class="single-digit-button" onclick="handleClick('2')">2</button>
+                    <button class="single-digit-button" onclick="handleClick('3')">3</button>
+                    <button class="single-digit-button" id="button-0" onclick="handleClick('0')">0</button>
+                </div>
+                <div class="operation-buttons">
+                    <button onclick="handleClick('+')">+</button>
+                    <button onclick="handleClick('-')">-</button>
+                    <button onclick="handleResult()">=</button>
+                    <button onclick="handleClear()">AC</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
