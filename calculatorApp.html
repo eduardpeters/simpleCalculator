@@ -9,26 +9,27 @@
     <body>
         <div class="calc-screen">
             <div class="operation">
-                <p id="current-operation"></p>
+                <p id="previous-input"></p>
+                <p id="current-input"></p>
             </div>
             <div class="buttons">
                 <div class="digit-buttons">
-                    <button class="single-digit-button" onclick="handleClick('7')">7</button>
-                    <button class="single-digit-button" onclick="handleClick('8')">8</button>
-                    <button class="single-digit-button" onclick="handleClick('9')">9</button>
-                    <button class="single-digit-button" onclick="handleClick('4')">4</button>
-                    <button class="single-digit-button" onclick="handleClick('5')">5</button>
-                    <button class="single-digit-button" onclick="handleClick('6')">6</button>
-                    <button class="single-digit-button" onclick="handleClick('1')">1</button>
-                    <button class="single-digit-button" onclick="handleClick('2')">2</button>
-                    <button class="single-digit-button" onclick="handleClick('3')">3</button>
-                    <button class="single-digit-button" id="button-0" onclick="handleClick('0')">0</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('7')">7</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('8')">8</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('9')">9</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('4')">4</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('5')">5</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('6')">6</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('1')">1</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('2')">2</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('3')">3</button>
+                    <button class="single-digit-button" id="button-0" onclick="handleNumberClick('0')">0</button>
                 </div>
                 <div class="operation-buttons">
-                    <button onclick="handleClick('*')">*</button>
-                    <button onclick="handleClick('/')">/</button>
-                    <button onclick="handleClick('+')">+</button>
-                    <button onclick="handleClick('-')">-</button>
+                    <button onclick="handleOperationClick('*')">*</button>
+                    <button onclick="handleOperationClick('/')">/</button>
+                    <button onclick="handleOperationClick('+')">+</button>
+                    <button onclick="handleOperationClick('-')">-</button>
                     <button onclick="handleResult()">=</button>
                     <button id="button-clear" onclick="handleClear()">AC</button>
                 </div>

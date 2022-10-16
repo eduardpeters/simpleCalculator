@@ -1,65 +1,65 @@
 console.log("JS Loaded!");
 
-function handleClick(button) {
-    const operationField = document.getElementById("current-operation");
+function handleNumberClick(button) {
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    if (previousField.value && operationField.innerHTML === ""){
+        previousField.style.display = "none";
+    }
     operationField.innerHTML = operationField.innerHTML + button;
 }
-/* Must implement a good parser, to avoid using eval() !!
-* Currently only handles a single operator and the first number cannot be negative.
-* It also does not handle floats at input (which can result from operations).
-*/
-function handleResult() {
-    const operationField = document.getElementById("current-operation");
-    const currentOperation = operationField.innerHTML;
-    if (validateOperation(currentOperation)){
-        let result = 0;
-        const numbers = currentOperation.split(/[\+\-\*\/]/).map(e => parseInt(e));
-        const operators = currentOperation.split(/[\d]*/).filter(e => e !== "");
-        console.log(numbers);
-        console.log(operators);
-        operationField.innerHTML = singleOperation(numbers[0], numbers[1], operators[0]);
+
+function handleOperationClick(button) {
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    if (operationField.innerHTML === ""){
+        alert("Enter a number before an operator");
     }
-    else{
-        alert("Not a valid operation");
+    else {
+        if (previousField.value)
+            handleResult();
+        previousField.value = operationField.innerHTML + button;
+        previousField.innerHTML = previousField.value.substring(0, previousField.value.length - 1);
+        previousField.style.display = "block";
+        operationField.innerHTML = "";
     }
 }
 
-function validateOperation(str) {
-    if (str[0] === "*" || str[0] === "/")
-        return (false);
-    let operatorCount = 0;
-    for (let i = 0; i < str.length; i++){
-        if (!isDigit(str[i]))
-            operatorCount++;
+function handleResult() {
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    if (previousField.value){
+        const firstNumber = parseFloat(previousField.innerHTML);
+        const secondNumber = parseFloat(operationField.innerHTML);
+        const operator = previousField.value[previousField.value.length - 1];
+        previousField.innerHTML = "";
+        previousField.value = "";
+        operationField.innerHTML = singleOperation(firstNumber, secondNumber, operator);
     }
-    return (operatorCount > 1 ? false : true);
+    else{
+        alert("No operation to perform");
+    }
 }
 
 function singleOperation(a, b, op) {
-    let result;
     switch (op) {
         case "+":
-            result = a + b;
-            break;
+            return (a + b);
         case "-":
-            result = a - b;
-            break;
+            return (a - b);
         case "*":
-            result = a * b;
-            break;
+            return (a * b);
         case "/":
-            result = a / b;
-            break;
+            return (a / b);
         default:
             break;
     }
-    return (result);
-}
-
-function isDigit(c) {
-    return (c >= "0" && c <= "9");
 }
 
 function handleClear() {
-    document.getElementById("current-operation").innerHTML = "";
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    previousField.innerHTML = "";
+    previousField.value = "";
+    operationField.innerHTML = "";
 }

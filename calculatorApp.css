@@ -8,8 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 500px;
-    margin-left: 25%;
-    margin-top: 10%;
+    margin: 10% 25%;
     border: 10px solid salmon;
     border-radius: 15px;
 }
@@ -24,7 +23,12 @@ body {
     background-color: lightgreen;
 }
 
-#current-operation {
+#previous-input {
+    display: none;
+    margin: 10px;
+}
+
+#current-input {
     margin: 10px;
 }
 
