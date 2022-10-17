@@ -6,7 +6,22 @@ function handleNumberClick(button) {
     if (previousField.value && operationField.innerHTML === ""){
         previousField.style.display = "none";
     }
-    operationField.innerHTML = operationField.innerHTML + button;
+    if (operationField.innerHTML === "0")
+        operationField.innerHTML = button;
+    else
+        operationField.innerHTML = operationField.innerHTML + button;
+}
+
+function handleDecimalClick() {
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    if (operationField.innerHTML.includes("."))
+        alert("A decimal separator has already been added");
+    else {
+        if (previousField.value && operationField.innerHTML === "")
+            previousField.style.display = "none";
+        operationField.innerHTML = operationField.innerHTML === "" ? "0." : operationField.innerHTML + ".";
+    }
 }
 
 function handleOperationClick(button) {
@@ -28,7 +43,7 @@ function handleOperationClick(button) {
 function handleResult() {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
-    if (previousField.value){
+    if (previousField.value && operationField.innerHTML){
         const firstNumber = parseFloat(previousField.innerHTML);
         const secondNumber = parseFloat(operationField.innerHTML);
         const operator = previousField.value[previousField.value.length - 1];

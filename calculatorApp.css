@@ -52,9 +52,13 @@ body {
     background-color: lightgray;
 }
 
-#button-0 {
-    justify-self: center;
-    width: 300px;
+#button-plusmin {
+    background-color: lightyellow;
+    color: orangered;
+}
+
+#button-decimal {
+    font-size: 40px;
 }
 
 .operation-buttons {

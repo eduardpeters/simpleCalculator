@@ -23,11 +23,13 @@
                     <button class="single-digit-button" onclick="handleNumberClick('1')">1</button>
                     <button class="single-digit-button" onclick="handleNumberClick('2')">2</button>
                     <button class="single-digit-button" onclick="handleNumberClick('3')">3</button>
-                    <button class="single-digit-button" id="button-0" onclick="handleNumberClick('0')">0</button>
+                    <button class="single-digit-button" id="button-plusmin" onclick="">+/-</button>
+                    <button class="single-digit-button" onclick="handleNumberClick('0')">0</button>
+                    <button class="single-digit-button" id="button-decimal" onclick="handleDecimalClick()">.</button>
                 </div>
                 <div class="operation-buttons">
-                    <button onclick="handleOperationClick('*')">*</button>
-                    <button onclick="handleOperationClick('/')">/</button>
+                    <button onclick="handleOperationClick('*')">x</button>
+                    <button onclick="handleOperationClick('/')">÷</button>
                     <button onclick="handleOperationClick('+')">+</button>
                     <button onclick="handleOperationClick('-')">-</button>
                     <button onclick="handleResult()">=</button>
