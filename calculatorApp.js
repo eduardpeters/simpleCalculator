@@ -1,4 +1,18 @@
 console.log("JS Loaded!");
+window.addEventListener("keydown", handleKeys);
+
+function handleKeys(event) {
+    if (event.key >= "0" && event.key <= "9")
+        handleNumberClick(event.key);
+    else if (event.key === ".")
+        handleDecimalClick();
+    else if (event.key === "Enter")
+        handleResult();
+    else if (event.key === "c")
+        handleClear();
+    else if ("+-*/".includes(event.key))
+        handleOperationClick(event.key);
+}
 
 function handleNumberClick(button) {
     const previousField = document.getElementById("previous-input");
