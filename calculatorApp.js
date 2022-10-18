@@ -8,6 +8,8 @@ function handleNumberClick(button) {
     }
     if (operationField.innerHTML === "0")
         operationField.innerHTML = button;
+    else if (operationField.innerHTML === "-0")
+        operationField.innerHTML = "-" + button;
     else
         operationField.innerHTML = operationField.innerHTML + button;
 }
@@ -20,15 +22,36 @@ function handleDecimalClick() {
     else {
         if (previousField.value && operationField.innerHTML === "")
             previousField.style.display = "none";
-        operationField.innerHTML = operationField.innerHTML === "" ? "0." : operationField.innerHTML + ".";
+        if (operationField.innerHTML === "")
+            operationField.innerHTML = "0.";
+        else if (operationField.innerHTML === "-")
+            operationField.innerHTML = "-0."
+        else
+            operationField.innerHTML = operationField.innerHTML + ".";
+    }
+}
+
+function handleSignClick() {
+    const previousField = document.getElementById("previous-input");
+    const operationField = document.getElementById("current-input");
+    console.log(operationField.innerHTML);
+    if (operationField.innerHTML[0] === "-")
+        operationField.innerHTML = operationField.innerHTML.substring(1,);
+    else {
+        if (previousField.value && operationField.innerHTML === "")
+            previousField.style.display = "none";
+        operationField.innerHTML = "-" + operationField.innerHTML;
     }
 }
 
 function handleOperationClick(button) {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
-    if (operationField.innerHTML === ""){
-        alert("Enter a number before an operator");
+    if (operationField.innerHTML === "" || operationField.innerHTML === "-"){
+        if (previousField.value)
+            previousField.value = previousField.innerHTML + button;
+        else
+            alert("Enter a number before an operator");
     }
     else {
         if (previousField.value)
