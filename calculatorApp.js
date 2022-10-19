@@ -48,7 +48,6 @@ function handleDecimalClick() {
 function handleSignClick() {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
-    console.log(operationField.innerHTML);
     if (operationField.innerHTML[0] === "-")
         operationField.innerHTML = operationField.innerHTML.substring(1,);
     else {
@@ -88,9 +87,8 @@ function handleResult() {
         previousField.value = "";
         operationField.innerHTML = singleOperation(firstNumber, secondNumber, operator);
     }
-    else{
+    else
         alert("No operation to perform");
-    }
 }
 
 function singleOperation(a, b, op) {
