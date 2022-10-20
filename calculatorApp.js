@@ -17,9 +17,6 @@ function handleKeys(event) {
 function handleNumberClick(button) {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
-    if (previousField.value && operationField.innerHTML === ""){
-        previousField.style.display = "none";
-    }
     if (operationField.innerHTML === "0")
         operationField.innerHTML = button;
     else if (operationField.innerHTML === "-0")
@@ -34,8 +31,6 @@ function handleDecimalClick() {
     if (operationField.innerHTML.includes("."))
         alert("A decimal separator has already been added");
     else {
-        if (previousField.value && operationField.innerHTML === "")
-            previousField.style.display = "none";
         if (operationField.innerHTML === "")
             operationField.innerHTML = "0.";
         else if (operationField.innerHTML === "-")
@@ -51,8 +46,6 @@ function handleSignClick() {
     if (operationField.innerHTML[0] === "-")
         operationField.innerHTML = operationField.innerHTML.substring(1,);
     else {
-        if (previousField.value && operationField.innerHTML === "")
-            previousField.style.display = "none";
         operationField.innerHTML = "-" + operationField.innerHTML;
     }
 }
@@ -62,16 +55,15 @@ function handleOperationClick(button) {
     const operationField = document.getElementById("current-input");
     if (operationField.innerHTML === "" || operationField.innerHTML === "-"){
         if (previousField.value)
-            previousField.value = previousField.innerHTML + button;
+            previousField.innerHTML = previousField.value + button;
         else
             alert("Enter a number before an operator");
     }
     else {
         if (previousField.value)
             handleResult();
-        previousField.value = operationField.innerHTML + button;
-        previousField.innerHTML = previousField.value.substring(0, previousField.value.length - 1);
-        previousField.style.display = "block";
+        previousField.value = operationField.innerHTML;
+        previousField.innerHTML = previousField.value + button;
         operationField.innerHTML = "";
     }
 }
@@ -80,9 +72,9 @@ function handleResult() {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
     if (previousField.value && operationField.innerHTML){
-        const firstNumber = parseFloat(previousField.innerHTML);
+        const firstNumber = parseFloat(previousField.value);
         const secondNumber = parseFloat(operationField.innerHTML);
-        const operator = previousField.value[previousField.value.length - 1];
+        const operator = previousField.innerHTML[previousField.innerHTML.length - 1];
         previousField.innerHTML = "";
         previousField.value = "";
         operationField.innerHTML = singleOperation(firstNumber, secondNumber, operator);

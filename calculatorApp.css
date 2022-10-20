@@ -18,23 +18,21 @@ body {
 }
 
 .operation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     border: 2px solid #000000;
     border-radius: 10px;
     font-size: 30px;
     font-weight: bold;
-    text-align: right;
     width: 506px;
     height: 50px;
+    padding-right: 20px;
     background-color: #7EDB98;
 }
 
-#previous-input {
-    display: none;
-    margin: 10px;
-}
-
-#current-input {
-    margin: 10px;
+.operation > p {
+    margin: 10px 0px;
 }
 
 .buttons {
