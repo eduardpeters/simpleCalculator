@@ -8,9 +8,10 @@ It is written in HTML, JavaScript and CSS as one of the early projects, allowing
 
 - It supports both UI buttons and keyboard input.
 - Decimal numbers input.
-- Can switch sign of input number.
-- Summation, substraction, multiplication and divition.
+- Can switch the sign of input number.
+- Sum, substraction, multiplication and divition.
 - Operations can be chained one after the other.
+- Operation can be changed before next number input.
 - An All Clear button ("c" on the keyboard) resets the calculator.
 
 #### Usage

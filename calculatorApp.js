@@ -15,7 +15,6 @@ function handleKeys(event) {
 }
 
 function handleNumberClick(button) {
-    const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
     if (operationField.innerHTML === "0")
         operationField.innerHTML = button;
@@ -26,7 +25,6 @@ function handleNumberClick(button) {
 }
 
 function handleDecimalClick() {
-    const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
     if (operationField.innerHTML.includes("."))
         alert("A decimal separator has already been added");
@@ -41,7 +39,6 @@ function handleDecimalClick() {
 }
 
 function handleSignClick() {
-    const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
     if (operationField.innerHTML[0] === "-")
         operationField.innerHTML = operationField.innerHTML.substring(1,);
@@ -54,13 +51,13 @@ function handleOperationClick(button) {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
     if (operationField.innerHTML === "" || operationField.innerHTML === "-"){
-        if (previousField.value)
+        if (previousField.innerHTML)
             previousField.innerHTML = previousField.value + button;
         else
             alert("Enter a number before an operator");
     }
     else {
-        if (previousField.value)
+        if (previousField.innerHTML)
             handleResult();
         previousField.value = operationField.innerHTML;
         previousField.innerHTML = previousField.value + button;
@@ -71,7 +68,7 @@ function handleOperationClick(button) {
 function handleResult() {
     const previousField = document.getElementById("previous-input");
     const operationField = document.getElementById("current-input");
-    if (previousField.value && operationField.innerHTML){
+    if (previousField.innerHTML && operationField.innerHTML){
         const firstNumber = parseFloat(previousField.value);
         const secondNumber = parseFloat(operationField.innerHTML);
         const operator = previousField.innerHTML[previousField.innerHTML.length - 1];
